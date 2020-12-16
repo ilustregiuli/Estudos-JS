@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro Passos com DOM</title>
+
+    <style>
+        body{
+            background: rgb(39, 209, 110);
+            color: white;
+            font: normal 18pt Arial;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos em DOM</h1>
+    <p>Aqui vai o restultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript. </p>
+    <p>Parágrafo 02</p>
+    <p>Parágrafo 03</p>
+    <p><strong>Parágrafo 06</strong></p>
+    <p>Parágrafo 04</p>
+    <p>Parágrafo 05</p>
+    <div>Clique em mim</div>
+    <div id="gunsnroses" >Aqui é o Guns N' Roses.</div>
+
+    <script>
+        window.document.write('Olá mundo!\n')
+        var gnr = window.document.getElementById('gunsnroses')
+        gnr.style.color = "pink"
+        var p = window.document.getElementsByTagName('p')[4]
+        document.write(p.innerHTML)
+        
+        var al = alert('Bem vindo a essa bagaça!')
+        al.style.color = 'green'
+       
+    </script>
+</body>
+</html>
