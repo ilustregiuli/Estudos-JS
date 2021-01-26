@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        
+    </style>
+
+
+    <title>Verificador de Brasilidade</title>
+</head>
+<body>
+    <div id="titulo">
+        <h1>Verificando Brasilidade:</h1>
+    </div>
+    <div>
+        <p>Digite aqui o seu país de nascimento:</p>
+        <input type="text" name="pais" id="pais">
+        <input type="button" value="Verificar" onclick="naturalidade()">
+    </div>    
+    <div id="verific">
+
+    </div>
+        
+  
+    
+
+    <script>
+       
+        
+        function naturalidade(){
+            var pais = document.querySelector('input#pais')
+            var ver = document.querySelector('div#verific')
+
+                if(pais.value != 'brasil'){
+                    ver.innerHTML = `<p> Você é <strong>ESTRANGEIRO</strong>. ${pais.value}</p>`
+                } else {
+                    ver.innerHTML = `<p> Você é <strong>BRASILEIRO</strong>.</p>`
+                }
+            }        
+    </script>
+
+
+
+</body>
+</html>
