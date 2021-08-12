@@ -1,33 +1,9 @@
-class Cliente {
-    nome;
-    cpf;   
-}
-
-class ContaCorrente{
-    agencia;
-    _saldo = 0;
-
-    sacar(valor){
-        if(this._saldo >= valor){
-            this._saldo -= valor
-            return valor
-        }
-        
-    }
-
-    depositar(valor) {
-        //early return
-        if(valor <= 0){
-            return
-        }
-
-        this._saldo += valor
-    }
-}
+import {Cliente} from "./Cliente.js"
+import { ContaCorrente } from "./ContaCorrente.js"
 
 const cliente1 = new Cliente()
 cliente1.nome = 'Giuli Ilustre'
-cliente1.cpf = 01234567890
+cliente1.cpf = 1234567890
 
 const cliente2 = new Cliente()
 cliente2.nome = 'Melina Angos'

@@ -35,3 +35,30 @@ As classes e os atributos e variáveis em JS são dinamicamente tipadas. Ou seja, 
 * early return - usado para deixar o código mais legível. Se faz primeiro a verificação e caso der certo, o código continua executando, se não, ele encontra um "return" e para a execução.
 
 Ex: if(valor <= 0) return  -- com "if" de uma só linha, pode ser colocado ao lado sem chaves
+
+* Na criação de classe, usar o nome da classe em cada arquivo com a primeira letra maiuscula
+
+**** MÓDULOS EM JAVASCRIPT ****
+
+Usado para usar definições, variáveis e funções de outros arquivos.
+
+COMO USAR:
+
+* Na definição que será "exportada"
+
+export class Cliente
+
+* No local onde será "importado", consumido a definição (usado a função, classe, variável, etc)
+
+import {Cliente} from "./Cliente.js"
+
+Todo framework ou outro interpretador (como NODE, como React.js) deve ter uma configuração padrão para utilizar os módulos. Ao tentar utilizar os imports e exports, deve ser usado dentro de um módulo. Por exemplo, o interpretador do NODE não interpreta arquivos como módulo, e sim como SCRIPTS. Para que ele saiba que um arquivo index.js por exemplo, é um módulo, deve-se usar um arquivo de configuração (package.json) e alterar uma configuração no "type": "module" e o NODE saiba que o "index.js" se trata de um módulo e não script.
+
+Para criar o arquivo de configuração, rodar o comando: >npm init
+
+Vai ser solicitado preencher alguns dados (nome projeto, versão, author, etc). Após preencher, será gerado o arquivo "package.json" com as informações preenchidas. 
+Depois, podemos setar o arquivo com:
+
+"type" : "module"
+
+... que poderá então usar o index.js como um "módulo"
