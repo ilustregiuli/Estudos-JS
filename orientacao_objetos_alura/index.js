@@ -11,14 +11,26 @@ cliente2.cpf = 82240578269
 
 const contaCorrenteGiuli = new ContaCorrente()
 contaCorrenteGiuli.agencia = 1001
+contaCorrenteGiuli.cliente = cliente1
 
-contaCorrenteGiuli.depositar(100)
+const contaCorrenteMelina = new ContaCorrente()
+contaCorrenteMelina.agencia = 1013
+contaCorrenteMelina.cliente = cliente2
+
+contaCorrenteGiuli.depositar(1000)
+
+console.log('Antes da transferencia ---------------------------')
 console.log(contaCorrenteGiuli)
+console.log(contaCorrenteMelina)
 
-const valorSacado = contaCorrenteGiuli.sacar(100)
+contaCorrenteGiuli.transferir(100,contaCorrenteMelina)
 
+console.log('Depois da transferencia ---------------------------')
 console.log(contaCorrenteGiuli)
-console.log(valorSacado)
+console.log(contaCorrenteMelina)
+
+
+
 
 
 

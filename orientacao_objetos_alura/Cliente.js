@@ -1,5 +1,5 @@
 export class Cliente {
-    nome;
-    cpf;   
+    nome
+    cpf  
 }
 
