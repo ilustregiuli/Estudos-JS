@@ -21,44 +21,145 @@
 
  #saldo
 
--- ps: funciona em alguns lugares, não é uma convenção oficial; Funciona no node a partir da versão 12 --
+-- ps: funciona em alguns lugares, nï¿½o ï¿½ uma convenï¿½ï¿½o oficial; Funciona no node a partir da versï¿½o 12 --
 
--- ps2: convenção da comunidade: foi definido usar o underline antes da variável para definir que o atributo é privado (ex: _saldo). Apesar de não ser impedido de usar o atributo, por convenção não devemos alterar o atributo fora da classe. --
+-- ps2: convenï¿½ï¿½o da comunidade: foi definido usar o underline antes da variï¿½vel para definir que o atributo ï¿½ privado (ex: _saldo).
+Apesar de nï¿½o ser impedido de usar o atributo, por convenï¿½ï¿½o nï¿½o devemos alterar o atributo fora da classe. --
 
 
 *** IMPORTANTE ***
 
-As classes e os atributos e variáveis em JS são dinamicamente tipadas. Ou seja, se eu crio uma classe, essa classe tem alguns atributos. MAS se em tempo de execução, for criado OUTRO atributo para aquele objeto, o JS vai aceitar esse novo atributo. OU seja, um atributo que for privado (com "#" ) vai ser diferente do mesmo atributo que não é privado (o mesmo nome, mas sem o "#").
+As classes e os atributos e variï¿½veis em JS sï¿½o dinamicamente tipadas. Ou seja, se eu crio uma classe, essa classe tem alguns atributos.
+MAS se em tempo de execuï¿½ï¿½o, for criado OUTRO atributo para aquele objeto, o JS vai aceitar esse novo atributo.
+OU seja, um atributo que for privado (com "#" ) vai ser diferente do mesmo atributo que nï¿½o ï¿½ privado (o mesmo nome, mas sem o "#").
 
-* palavra "return" - quando usado, para a execução da função no ponto que estiver
+* palavra "return" - quando usado, para a execuï¿½ï¿½o da funï¿½ï¿½o no ponto que estiver
 
-* early return - usado para deixar o código mais legível. Se faz primeiro a verificação e caso der certo, o código continua executando, se não, ele encontra um "return" e para a execução.
+* early return - usado para deixar o cï¿½digo mais legï¿½vel. Se faz primeiro a verificaï¿½ï¿½o e caso der certo, o cï¿½digo continua executando,
+se nï¿½o, ele encontra um "return" e para a execuï¿½ï¿½o.
 
-Ex: if(valor <= 0) return  -- com "if" de uma só linha, pode ser colocado ao lado sem chaves
+Ex: if(valor <= 0) return  -- com "if" de uma sï¿½ linha, pode ser colocado ao lado sem chaves
 
-* Na criação de classe, usar o nome da classe em cada arquivo com a primeira letra maiuscula
+* Na criaï¿½ï¿½o de classe, usar o nome da classe em cada arquivo com a primeira letra maiuscula
 
-**** MÓDULOS EM JAVASCRIPT ****
+**** Mï¿½DULOS EM JAVASCRIPT ****
 
-Usado para usar definições, variáveis e funções de outros arquivos.
+Usado para usar definiï¿½ï¿½es, variï¿½veis e funï¿½ï¿½es de outros arquivos.
 
 COMO USAR:
 
-* Na definição que será "exportada"
+* Na definiï¿½ï¿½o que serï¿½ "exportada"
 
 export class Cliente
 
-* No local onde será "importado", consumido a definição (usado a função, classe, variável, etc)
+* No local onde serï¿½ "importado", consumido a definiï¿½ï¿½o (usado a funï¿½ï¿½o, classe, variï¿½vel, etc)
 
 import {Cliente} from "./Cliente.js"
 
-Todo framework ou outro interpretador (como NODE, como React.js) deve ter uma configuração padrão para utilizar os módulos. Ao tentar utilizar os imports e exports, deve ser usado dentro de um módulo. Por exemplo, o interpretador do NODE não interpreta arquivos como módulo, e sim como SCRIPTS. Para que ele saiba que um arquivo index.js por exemplo, é um módulo, deve-se usar um arquivo de configuração (package.json) e alterar uma configuração no "type": "module" e o NODE saiba que o "index.js" se trata de um módulo e não script.
+Todo framework ou outro interpretador (como NODE, como React.js) deve ter uma configuraï¿½ï¿½o padrï¿½o para utilizar os mï¿½dulos.
+Ao tentar utilizar os imports e exports, deve ser usado dentro de um mï¿½dulo. Por exemplo, o interpretador do NODE nï¿½o interpreta
+arquivos como mï¿½dulo, e sim como SCRIPTS. Para que ele saiba que um arquivo index.js por exemplo, ï¿½ um mï¿½dulo, deve-se usar
+um arquivo de configuraï¿½ï¿½o (package.json) e alterar uma configuraï¿½ï¿½o no "type": "module" e o NODE saiba que o "index.js" se trata
+de um mï¿½dulo e nï¿½o script.
 
-Para criar o arquivo de configuração, rodar o comando: >npm init
+Para criar o arquivo de configuraï¿½ï¿½o, rodar o comando: >npm init
 
-Vai ser solicitado preencher alguns dados (nome projeto, versão, author, etc). Após preencher, será gerado o arquivo "package.json" com as informações preenchidas. 
+Vai ser solicitado preencher alguns dados (nome projeto, versï¿½o, author, etc). Apï¿½s preencher, serï¿½ gerado o arquivo "package.json"
+com as informaï¿½ï¿½es preenchidas. 
+
 Depois, podemos setar o arquivo com:
 
 "type" : "module"
 
-... que poderá então usar o index.js como um "módulo"
+... que poderï¿½ entï¿½o usar o index.js como um "mï¿½dulo"
+
+* tag "scripts" do package.json
+Utilizada para facilitar e rodar scripts que seriam muito longos ou precise de vï¿½rios parï¿½metros.
+Pode ser utilizado para iniciar a aplicaï¿½ï¿½o, colocando o arquivo inicial (index.js)
+
+"scripts": {
+    "start": "node index.js"
+}
+
+... e no terminal, rodar entï¿½o: >npm start
+
+
+*** COMPOSIï¿½ï¿½O *****
+
+ - Associar uma classe a outra (conta-corrente com um objeto Cliente)
+
+*** TIPOS VALOR E TIPO REFERï¿½NCIA
+
+Em JS, quando passamos um parï¿½metro do tipo VALOR (primitivo), nï¿½o estamos usando a variï¿½vel em si, mas sim uma cï¿½pia dela.
+Portanto, se passarmos uma variï¿½vel do tipo valor e ela for alterada durante o programa, ou passarmos esse valor para outra variï¿½vel,
+a variï¿½vel original continuarï¿½ com o mesmo valor, pois estavamos passando uma cï¿½pia do valor, e nï¿½o a variï¿½vel propriamente dita.
+
+Ex. 
+
+a = 1;  
+b = a;  
+a = a + 1;
+
+escrever "a" -> 2
+escrever "b" -> 1  --> "b" continua valendo "1" pois sï¿½ recebeu a cï¿½pia do valor de "a" e nï¿½o a referï¿½ncia.
+
+Caso "a" e "b" fossem objetos, e "b" = "a", entï¿½o sim seria alterado "b" tambï¿½m, pois "b" ï¿½ uma referencia a "a".
+
+*** Null e Undefined ***
+
+Null -> quando ï¿½ explï¿½cito que alguma variï¿½vel ï¿½ nula (de propï¿½sito)
+
+Undefined -> quando nï¿½o foi especï¿½ficado nenhum valor ou referï¿½ncia para algo (sem querer)
+
+***** GETTERS e SETTERS *****
+
+- Setter
+set atributo(valor) { 
+   if(valor instanceof minhaClasse){
+	this.atributo = valor
+   }			
+}
+
+- Getter
+
+get atributo() {
+   return this._atributo
+}
+
+PS: nï¿½o ï¿½ necessï¿½rio usar o nome do mï¿½todo, pode-se fazer as atribuï¿½ï¿½es com " = "
+
+Ex:
+
+	minhaClasse.atributo = valor 		(SET)
+
+	console.log(minhaClasse.atributo) 	(GET)
+
+PS2: usando somente o "get", nï¿½o ï¿½ possï¿½vel alterar o valor de um atributo privado, fazendo assim um encapsulamento dele (private)
+
+
+**** CONSTRUTOR **** 
+
+Dentro da classe, colocar:
+
+constructor (atributo_1, atributo_2) {
+   this.atributo_1 = atributo_1
+   this.atributo_2 = atributo_2
+}
+
+
+***** ATRIBUTOS ESTï¿½TICOS ****
+
+Ao setarmos um atributo de um objeto de uma classe, estamos setando (alterando, modificando, processando) somente o atributo daquele objeto
+especï¿½fico. Mas se dejarmos fazer com que TODOS os objetos dessa mesma classe, seja processado (ou seja, tenha o mesmo comportamento
+em todas as instancias), significa que se esse atributo ï¿½ processado sempre em TODOS os objetos do programa.
+
+ex: 
+
+static atributoStatic
+
+contructor (atributo) {
+   this.atributo = atributo;
+   MinhaClasse.atributoStatic = valor;	
+}
+
+console.log(MinhaClasse.atributoStatic)
