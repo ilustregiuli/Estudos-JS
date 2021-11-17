@@ -1,10 +1,8 @@
- export class ContaCorrente{
-    
-    constructor(agencia,cliente){
-        this.agencia = agencia;
-        this.cliente = cliente;
-        this._saldo = 0;
-        ContaCorrente.numeroDeContas += 1;
+export class Conta{
+    constructor(saldoInicial,cliente,agencia){
+        this._saldo = saldoInicial;
+        this._cliente = cliente;
+        this._agencia = agencia;
     }
 
     sacar(valor){
@@ -29,4 +27,10 @@
         conta.depositar(valorSacado)
 
     }
+
+    getSaldo(){
+        return this._saldo;
+    }
+
+
 }
